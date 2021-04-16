@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="moment-with-locales.js"></script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>moment.js 오픈소스</h1>
+    <h1 id="time"></h1>
+    <div id="demo"></div>
+    <select>
+        <option></option>년
+    </select>
+<script>
+        /*
+        [moment.js] 란?
+        - 자바스크립트 오픈소스
+        - Date객체를 좀더 이쁜 형식으로 출력할 수 있다
+        */
+    //var d = new Date();
+    var now = moment();
+    //alert(now);
+    var str="";
+    str+=now.format('MMMM Do YYYY, h:mm:ss a');
+    str+="<br>";
+    str+=now.format();
+    str+="<br>";
+    str+=now.format("dddd");
+    str+="<br>";
+    str+=now.year();
+    str+="<br>";
+    str+=now.date();
+    str+="<br>";
+    $("#demo").css(
+        {
+            "border": "1px solid blue",
+            "background-color":"hotpink",
+            "width":400,
+            "height":200
+        }
+    ).html(str);   
+    
+    moment.locale("ko");
+    var fullDate=now.format('YYYY년MM월DD일 HH시mm분ss초');
+    $("#time").text(fullDate).css("color","green");
+    </script>
+</body>
+</html>

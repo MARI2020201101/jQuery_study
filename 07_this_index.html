@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="jquery-3.6.0.min.js"></script>
+    <style>
+        #exBox   {width: 400px; height: 300px;}
+        .btn     {width: 120px; height: 50px; cursor: pointer;}
+        #pinkBtn {background: hotpink}
+        #blueBtn {background: blue}
+        #greenBtn{background: green}
+    </style>
+</head>
+<body>
+    <h1>클릭한 요소의 인덱스 얻기</h1>
+    <h3>this 연습</h3>
+    <hr>
+    <div id="exBox">
+        <p>
+            <button id="pinkBtn" class="btn">멋진핑크</button>
+            <button id="blueBtn" class="btn">쿨한블루</button>
+            <button id="greenBtn" class="btn">네온녹색</button>
+        </p>
+        <dl>
+            <dt>클릭한 버튼 정보</dt>
+            <dd>클릭한 버튼의 index: <span id="index">?</span></dd>
+            <dd>클릭한 버튼의 배경색: <span id="color">?</span></dd>
+            <dd>클릭한 버튼의 글자: <span id="text">?</span></dd>
+        </dl>
+    </div>
+
+    <div id="demo"></div>
+    <hr>
+    <button id="index2">클릭</button>
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <button>버튼3</button>
+    <ul>
+        <li>하나</li>
+        <li>둘</li>
+        <li>셋</li>
+        <li>넷</li>
+    </ul>
+<script>
+$("#index2").on("click",function(){
+    $("li").each(function(index,item){
+        $("#demo").text(index+" : "+item);
+    }); 
+});
+$("button").click(function(){
+    $(this).css("color","violet");
+    $("#demo").css({
+        "height":100,
+        "width":100,
+        "background-color":"skyblue",
+        "border":"1px solid black"
+    }).toggle(2000);
+
+    var idx= $(this).index();
+    console.log(idx);
+});
+$("#exBox .btn").click(function(){
+    var idx=$(this).index();
+    //alert(idx);
+    $("#index").text(idx);
+    $("#color").text($(this).css("color"));
+    $("#text").text($(this).text());
+});
+/**
+ * $(this) : jQuery에서 자기자신을 가리킬때
+ * $("this") : <this>라는 엘리먼트를 찾는다
+ * $("<this>") :
+*/
+</script>
+</body>
+</html>

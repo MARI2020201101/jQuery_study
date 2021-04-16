@@ -6,9 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<script src ="jquery-3.6.0.min.js"></script>
 <body>
     <!--
         jQuery : javascript Library
+
+        [사용법]
+        1) 직접다운로드 (추천)
+        2) cdn 해서 include하기( 링크걸어서 쓴다 )
+            jquery.min.js 를 head태그 안쪽에 선언
     -->
+<script>
+    $(document).ready(function(){
+
+    // document가 완전히 load되기전에 함수 부르거나 하면 못찾을수도 있음. 써주는 것이 좋다!
+    /*Here are some examples of actions that can fail if methods are run before the document is fully loaded:
+
+    - Trying to hide an element that is not created yet
+    - Trying to get the size of an image that is not loaded yet*/
+
+    });
+    $(function(){
+
+    // jQuery methods go here...
+
+    });
+</script>
+
 </body>
 </html>

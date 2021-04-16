@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <button id="startBtn">7단 스타트!</button>
+    <button id="startBtn2">7단 스타트! ver.jQuery</button>
+    <div id="demo">
+        <ul></ul>
+    </div>
+    <script>
+        $("#startBtn").on("click",function(){
+            $("ul").css({
+                "background-color":"skyblue"
+            });
+            var dan =7;
+            for(i=1;i<=9;i++){
+                var text =dan+"*"+ i+" = "+(dan*i);
+                $("<li>").text(text).appendTo("ul");
+            }
+            $("li").each(function(){
+                var result= $(this).text();
+                console.log(result);
+            });
+        });
+        //jQuery의 each 반복문
+        //$(배열).each(function(index,item){
+
+        // });
+        //$.each(배열, function(index,item){
+
+        //});
+        
+    </script>
+</body>
+</html>

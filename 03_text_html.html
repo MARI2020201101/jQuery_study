@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src ="jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>text()와 html()함수</h1>
+    <button>입력!!</button>
+    <hr>
+    <div id="text"></div>
+    <div id="html"></div>
+    <script>
+        $("button").on("click",function(){
+            var text="<img src=\"../imgs/devil.png\">";
+            $("#text").text(text);
+            $("#html").html(text);
+            //text 는 그대로 string으로 출력하고, html은 html 태그 엘리멘트로 해석해서 출력해준다
+            
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>jQuery이벤트</h1>
+    <form id="memform" action="ok.jsp">
+       아이디:
+        <input type="text" name="uid" id="uid" value="soldesk">
+        <hr>
+        <button id="btn_idcheck">ID중복확인</button>
+        <button id="btn_join">회원가입</button>
+        <button id="btn_reset">다시쓰기</button>
+    </form>
+    <script>
+        //<body>본문에 있는 value=soldesk에 접근한다. 
+        //1) javascript
+        alert(document.getElementById("uid").value);
+        //2) jQuery 
+        alert($("#uid").val());
+        
+        /*
+        [jQuery 이벤트와 함수]
+        1) $("selector").on("이벤트명", function(){});
+        2) $("selector").click(function(){});
+
+        *) anonymous 함수쓰기도 가능
+        $("selector").click(
+            ()=>{
+                return ~~;
+            });
+        */
+
+        $("#btn_idcheck").on("click", function(e){
+            
+          //  window.open("01_jquery시작.html","popwin","width:300,height:200");
+            
+        });
+        $("#btn_join").on("click", function(){
+            var uid=$("#uid").val();
+            uid.trim();
+            if(!(uid.length>=8&&uid.length<=12)){
+                alert("아이디 글자수는 8자이상 12자 이하입니다.");
+                $("#uid").focus();
+                return false;
+            }
+            memform.submit();
+        });        
+        $("#btn_reset").on("click", function(){
+
+        });
+
+    </script>
+</body>
+</html>

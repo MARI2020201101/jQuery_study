@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src ="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>
+        <button>title 얻기</button>
+        <button>src 변경하기</button>
+        <button>여러개의 속성을 한번에 변경하기</button>
+    </p>
+    <div id="box"></div> 
+    <img src="../imgs/k7.png" alt="라이언이미지" title="ryan">
+    <!--img 태그의 title속성이란?
+        이미지에 hover하면 나오는 이미지 설명
+    -->
+    <!--
+        <img> : element
+        src, alt, title : property 또는 attribute
+
+    -->
+<script>
+    $("button").eq(0).click(function(){
+        var title = $("img").attr("title");
+        $("#box").html("img title : "+title);
+    });
+    $("button").eq(1).click(function(){
+        $("img").attr("src", "../imgs/k6.png");
+        
+    });
+    $("button").eq(2).click(function(){
+        var obj ={"width":"500",
+                    "height":"500",
+                    "src": "../imgs/k5.png",
+                    "title":"CON"
+        };
+        $("img").attr(obj);
+    });
+</script>
+</body>
+</html>
