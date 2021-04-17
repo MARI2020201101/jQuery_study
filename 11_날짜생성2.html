@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="jquery-3.6.0.min.js"></script>
     <script src="moment-with-locales.js"></script>
     <title>Document</title>
@@ -12,11 +13,12 @@
     <h1>날짜 데이터 자동생성</h1>
     <select id="year"></select>년
     <select id="month"></select>월
-    <select id="date"></select>일     
+    <select id="date"></select>일  
 <script>
     $(document).ready(function(){
         createYearMonth();
-        
+
+
     });
     function createYearMonth(){
         //alert("함수호출됨");
@@ -56,6 +58,14 @@
     $("#year,#month").change(function(){ 
         createDate();
     });
-</script>
+    $("#year").change(function(e){
+        var v =e.target;
+        createYear(v);
+    });
+    function createYear(v){
+        var nYear=v;
+        console.log(v);
+    }
+</script>    
 </body>
 </html>
