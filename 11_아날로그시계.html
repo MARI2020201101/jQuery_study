@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>11_아날로그시계.html</title>
+  <style>
+    #wrap {
+        width:600px;
+        height:600px;
+        position: fixed;        
+        left:50%;
+        top:50%;
+        margin:-300px 0 0 -300px;
+        font-family: bon,sans-serif;
+    }
+    #wrap h3 {
+        height:80px;
+        font-size:50px;
+        text-align: center;
+        line-height: 80px;
+        font-weight: 700;
+        color:#424242;
+    }
+    #clock {
+        width:500px;
+        height:500px;
+        background:url(../imgs/Clock-face.png);
+        background-size:100% 100%;
+        margin: auto;
+        position: relative;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+    #hour{background-image: url(../imgs/hour_hand.png);}
+    #min{background-image: url(../imgs/minute_hand.png);}
+    #sec{background-image: url(../imgs/second_hand.png);}
+
+    .hand{
+      width:500px;
+      height: 500px;
+      position: absolute;
+      left:0;
+      top:0;
+    }
+  </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="moment-with-locales.js"></script>
+</head>
+<body>
+  <div id="wrap">
+        <h3>아날로그시계</h3>
+        <div id="clock"><!--시계전체이미지-->
+            <div id="hour" class="hand"></div> <!--시 이미지-->
+            <div id="min"  class="hand"></div>  <!--분 이미지-->
+            <div id="sec"  class="hand"></div>  <!--초 이미지-->
+        </div>  
+  </div>
+
+
+  <script>
+
+    $(document).ready(function(){
+      showtime();
+      setInterval(showtime,1000);
+    });
+    function showtime(){
+      var now = moment();
+      var hour = now.hour();
+      var min = now.minute();
+      var sec = now.second();
+
+      //360도-60초,60분 => 6도씩 이미지 꺽기
+      $("#sec").css("transform","rotate("+(6*sec)+"deg)"); //360도 / 60초
+      $("#min").css("transform","rotate("+(6*min)+"deg)"); //360도 / 60분
+      $("#hour").css("transform","rotate("+(30*hour)+"deg)"); //360도 / 12시간
+    
+    }
+
+  </script>
+
+</body>
+</html>  
